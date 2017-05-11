@@ -4,6 +4,7 @@
 
 - IP address: [128.199.34.206](http://128.199.34.206)
 - Simple version of [bookshelf app](https://github.com/b2m9/nd004-p4) is running
+- Source code of this version can be found in `src` folder
 
 ## Configuration
 
