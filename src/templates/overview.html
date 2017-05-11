@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}
+    Bookshelf{% if topic %} - {{ topic }}{% endif %}
+{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+      <div class="col-md-4">
+          <h1>Topics</h1>
+          {{ macros.list_topics(topics) }}
+      </div>
+      <div class="col-md-8">
+          <h1>
+              {% if topic %}{{ topic }}
+              {% else %}Latest Books
+              {% endif %}
+          </h1>
+              {% if topic %}{{ macros.list_books(books, False) }}
+              {% else %}{{ macros.list_books(books, True) }}
+              {% endif %}
+      </div>
+    </div>
+{% endblock %}
