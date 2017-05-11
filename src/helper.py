@@ -4,7 +4,7 @@ import re
 regex_delimit = re.compile(r"[\t !\"#$%&()*\-/<=>?@\[\\\]^_`{|}:,.]+")
 
 
-def create_slug(title: str = "") -> str:
+def create_slug(title):
     """Create a human-friendly slug.
 
     Examples:
@@ -20,7 +20,7 @@ def create_slug(title: str = "") -> str:
     return "-".join(result)
 
 
-def get_slug(slugs: list, text: str = "") -> str:
+def get_slug(slugs, text):
     """Get a unique slug.
 
     Books and topics can have the same name and therefore the same slug. To
