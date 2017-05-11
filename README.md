@@ -1,46 +1,24 @@
 # Udacity: Server Configuration
 
-## Update existing packages
+## Details
 
-- [ ] update all package lists `apt-get update`
-- [ ] upgrade all packages `apt-get upgrade`
-- [ ] remove un-used packages `apt-get autoremove`
+- IP address: `128.199.34.206`
 
-## Secure server
+## Configuration
 
-- [ ] change the SSH port from 22 to 2200
-- [ ] configure UFW to only allow 2200, 80, and 123
-  - `ufw status`
-  - `ufw default deny incoming`
-  - `ufw default allow outgoing`
-  - standard ssh: `ufw allow ssh`
-  - custom port: `ufw allow 2200/tcp`
-  - http: `ufw allow www`
-  - `ufw enable`
+- SSH listens to port `2200`
+- UFW only allows ports `2200`, `80`, and `123`
+- Configured UTC as timezone and sync via `ntp`
+- Key-based authentication only
 
-## User
+## Packages installed
 
-- [ ] create a new user account named grader
-  - `adduser grader`
-  - `finger grader`
-- [ ] give grader the permission to sudo
-  - create file `/etc/sudoers.d/grader`
-  - `nano into it`
-  - write `grader ALL=(ALL) NOPASSWD:ALL`
-  - test sudo access as grader with `sudo cat /etc/passwd`
-- [ ] create an SSH key pair for grader using the ssh-keygen tool
-- [ ] add SSH key
-  - `mkdir .ssh` in /home/grader as grader
-  - `touch .ssh/authorized_keys` and `nano` into it
-  - copy paste ssh public key
-  - `chmod 700 .ssh`
-  - `chmod 644 .ssh/authorized_keys`
-  - login as grader `ssh grader@ip -p port -i ~/.ssh/key`
-- [ ] Disable password-based login
-  - `nano /etc/ssh/sshd_config`
-  - change to `PasswordAuthentication no`
-  - restart ssh service `service ssh restart`
-- [ ] delete root user
+- `apache2`, `libapache2-mod-wsgi`, `postgresql`, `python3-pip`
+- `git`, `ntp`, `finger`
+
+
+
+
 
 ## Setup app server
 
@@ -62,18 +40,9 @@ def application(environ, start_response):
     return [output]
 ```
 
-- [ ] install postgresql `apt-get install postgresql`
-- [ ] install finger `apt-get install finger`
-
-
-- [ ] configure the local timezone to UTC
-
-
 
 - [ ] install python3 and pip `apt-get -qqy install python3 python3-pip`
-- [ ] upgrade pip `pip3 install --upgrade pip`
 - [ ] check outdated pip packages `pip3 list -o`
-- [ ] install git
 
 ## More
 
