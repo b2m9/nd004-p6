@@ -2,7 +2,8 @@
 
 ## Details
 
-- IP address: `128.199.34.206`
+- IP address: [128.199.34.206](http://128.199.34.206)
+- Simple version of [bookshelf app](https://github.com/b2m9/nd004-p4) is running
 
 ## Configuration
 
@@ -13,40 +14,9 @@
 
 ## Packages installed
 
-- `apache2`, `libapache2-mod-wsgi`, `postgresql`, `python3-pip`
+- `apache2`, `libapache2-mod-wsgi`, `postgresql`
 - `git`, `ntp`, `finger`
 
+## References
 
-
-
-
-## Setup app server
-
-- [ ] install apache `apt-get install apache2`
-- [ ] `apt-get install libapache2-mod-wsgi`
-- [ ] configure Apache to serve apython mod_wsgi application
-  - For now, add the following line at the end of the <VirtualHost *:80> block, right before the closing </VirtualHost> line: WSGIScriptAlias / /var/www/html/myapp.wsgi
-  - restart Apache with the sudo apache2ctl restart command
-  - test with the file given as WSGIScriptAlias: /var/www/html/myapp.wsgi, code below:
-  
-```
-def application(environ, start_response):
-    status = '200 OK'
-    output = 'Hello World!'
-
-    response_headers = [('Content-type', 'text/plain'), ('Content-Length', str(len(output)))]
-    start_response(status, response_headers)
-
-    return [output]
-```
-
-
-- [ ] install python3 and pip `apt-get -qqy install python3 python3-pip`
-- [ ] check outdated pip packages `pip3 list -o`
-
-## More
-
-- deploy app
-- run app
-- make sure .git folder is not available outside
-- A README file is included in the GitHub repo containing the following information: IP address, URL, summary of software installed, summary of configurations made, and a list of third-party resources used to completed this project.
+- [Deploy Flask on mod_wsgi](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
